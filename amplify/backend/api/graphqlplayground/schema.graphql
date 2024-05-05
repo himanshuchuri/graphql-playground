@@ -2,21 +2,33 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Blog @model {
-  id: ID!
+# type - represent a type of object thast you might get back from Api
+# @ fefines a directive which means that a field or type has a custom logic associated with it.
+# @model - data for our type is stored in database
+# type of fields (ID, String, Posts (custom types)); ID and String are singular types, to make a field an array just put "[]" over it.
+# ! - mandatory or non-null fields
+# @connection(keyName: "", fields: ["id"]) - is used to relate one model to another
+# @hasMany directive is used to define a one-to-many relationship between two data types within your schema. It essentially indicates that a single instance of one type can have many instances of another type associated with it.
+# @belongsTo directive in GraphQL is the counterpart to @hasMany and is used to define the other side of a one-to-many relationship between two data types in your schema. It essentially indicates that a single instance of a type belongs to one and only one instance of another type.
+
+type Recipe @model {
+  id: ID! @primaryKey
   name: String!
-  posts: [Post] @hasMany
+  ingredients: [Ingredient] @hasMany(indexName: "byRecipe", fields: ["id"]) #@connection(keyName: "byRecipe", fields: ["id"])
+  instructions: [Instruction] @hasMany(indexName: "byRecipe", fields: ["id"]) #@connection(keyName: "byRecipe", fileds: ["id"])
 }
 
-type Post @model {
-  id: ID!
-  title: String!
-  blog: Blog @belongsTo
-  comments: [Comment] @hasMany
+type Ingredient @model {
+  id: ID! @primaryKey
+  name: String!
+  quantity: String!
+  recipeID: ID! @index(name: "byRecipe") 
+  recipe: Recipe @belongsTo(fields: ["recipeID"]) #@connection(fields: ["recipeID"])
 }
 
-type Comment @model {
-  id: ID!
-  post: Post @belongsTo
-  content: String!
+type Instruction @model {
+  id: ID! @primaryKey
+  info: String!
+  recipeID: ID! @index(name: "byRecipe") 
+  recipe: Recipe @belongsTo(fields: ["recipeID"]) #@connection(fields: ["recipeID"])
 }

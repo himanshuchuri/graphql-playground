@@ -1,15 +1,20 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-graphqlplayground-dev-eb72f-authRole",
-      "UnauthRoleArn": "arn:aws:iam::236974622882:role/amplify-graphqlplayground-dev-eb72f-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::236974622882:role/amplify-graphqlplayground-dev-eb72f-authRole",
+      "AuthRoleName": "amplify-graphqlplayground-dev-34bac-authRole",
+      "UnauthRoleArn": "arn:aws:iam::236974622882:role/amplify-graphqlplayground-dev-34bac-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::236974622882:role/amplify-graphqlplayground-dev-34bac-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-graphqlplayground-dev-eb72f-deployment",
-      "UnauthRoleName": "amplify-graphqlplayground-dev-eb72f-unauthRole",
-      "StackName": "amplify-graphqlplayground-dev-eb72f",
-      "StackId": "arn:aws:cloudformation:us-east-1:236974622882:stack/amplify-graphqlplayground-dev-eb72f/0e8fba20-0a4b-11ef-b5c6-0e0c533df529",
-      "AmplifyAppId": "d3qkaxsxcy441a"
+      "DeploymentBucketName": "amplify-graphqlplayground-dev-34bac-deployment",
+      "UnauthRoleName": "amplify-graphqlplayground-dev-34bac-unauthRole",
+      "StackName": "amplify-graphqlplayground-dev-34bac",
+      "StackId": "arn:aws:cloudformation:us-east-1:236974622882:stack/amplify-graphqlplayground-dev-34bac/efb16b70-0a78-11ef-acd3-0affd2c402ff",
+      "AmplifyAppId": "d1iqd19spxsdy4"
+    },
+    "categories": {
+      "api": {
+        "graphqlplayground": {}
+      }
     }
   }
 }
